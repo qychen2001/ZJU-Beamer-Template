@@ -1,5 +1,11 @@
 # 浙江大学Latex幻灯片模板
 
+## News
+
+**2023.8.23** 将模板上传到了Overleaf，欢迎使用。Link：[Template](https://www.overleaf.com/latex/templates/zhe-jiang-da-xue-beamer-mo-ban-zju-beamer-template/jhtfvynrcbrg)
+
+**2023.8.22** 首次提交了模板
+
 ## 使用说明
 1. 下载并安装 TeXLive；
 2. 下载本模板文件；
