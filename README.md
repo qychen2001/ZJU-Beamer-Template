@@ -2,6 +2,8 @@
 
 ## News
 
+**2023.10.17** 修改了一些细节，并在CC98宣传！
+
 **2023.8.23** 将模板上传到了Overleaf，欢迎使用。Link：[Template](https://www.overleaf.com/latex/templates/zhe-jiang-da-xue-beamer-mo-ban-zju-beamer-template/jhtfvynrcbrg)
 
 **2023.8.22** 首次提交了模板
