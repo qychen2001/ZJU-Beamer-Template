@@ -23,7 +23,6 @@ clean:
 	@rm -f $(TARGET).aux $(TARGET).log $(TARGET).out $(TARGET).toc $(TARGET).synctex.gz $(TARGET).bbl $(TARGET).blg $(TARGET).fls $(TARGET).fdb_latexmk $(TARGET).nav $(TARGET).snm $(TARGET).vrb *.log
 	@rm -f *.pdf
 	@echo "Done!"
-	@tree -L 2
 	
 help:
 	@echo "Makefile Help:"
