@@ -36,7 +36,7 @@ xelatex ZJU_BeamerTemplate.tex
 
 4. 或者可以在VsCode中使用`LaTeX Workshop`插件编译，选择`XeLaTeX`编译器。
 
-![vscode_latex_workshop](assets/vscode_latex_workshop_compile.png){width=50%,align=center}
+![vscode_latex_workshop](assets/vscode_latex_workshop_compile.png)
 
 ### Linux/Mac
 1. 下载并安装 TeXLive（安装过程略）
@@ -69,9 +69,9 @@ make help   # 显示帮助信息
 方法2: 
 
 - 下载压缩包文件，在Overleaf中新建项目，选择“Upload Project”，上传压缩包文件。
-![overleaf_upload](assets/overleaf_upload.png){width=40%,align=center}
+![overleaf_upload](assets/overleaf_upload.png)
 - Overleaf 默认使用pdfLaTeX编译，请在页面左上角的`Menu`中编译器选择`XeLaTeX`
-![overleaf_compile](assets/overleaf_compile.png){width=30%,align=center}
+![overleaf_compile](assets/overleaf_compile.png)
 - 在Overleaf中点击`Compile`，即可预览PDF。
 
 
