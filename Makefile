@@ -15,7 +15,7 @@ $(PDF): $(SRC)
 init: renew clean
 
 renew: 
-	find figures/ -type f ! -name 'char.png' ! -name 'example.png' ! -name 'logo.png' ! -name 'background.png' -delete
+	find figures/ -type f ! -name 'char.pdf' ! -name 'example.png' ! -name 'logo.pdf' ! -name 'background.png' -delete
 
 
 clean:

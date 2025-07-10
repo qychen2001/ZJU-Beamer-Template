@@ -13,79 +13,118 @@
 % The modified version is identified by the name '[zju_beamer]'
 % to avoid confusion with the original work.
 
-%%%%-----导入宏包-----%%%%
+% ============================================================
+% 1. 宏包导入与基础设置
+% ============================================================
+
 \ProvidesPackage{zju_beamer}  
-% 导入必要的宏包
-\usefonttheme[onlymath]{serif}
-\RequirePackage{fontspec} % 提供字体选择功能
-\RequirePackage{xeCJK} % 提供更完善的中文支持
-\RequirePackage{ctex} % 提供中文支持
-\RequirePackage{amsmath,amsfonts,amssymb,bm} % 数学公式相关宏包
-\RequirePackage{graphicx,hyperref,url} % 图片、超链接支持
-\RequirePackage{metalogo} % metalogo图标，例如\XeLaTeX
-\RequirePackage{lipsum} % 用于生成填充文本
-\RequirePackage{listings} % 代码高亮显示
-% \RequirePackage{xcolor}
-\RequirePackage[dvipsnames]{xcolor} % 提供颜色设置的功能，`dvipsnames` 选项允许使用更多预定义的颜色名称。
-\RequirePackage{subcaption} % 用于创建并排图片
-\RequirePackage{multicol} % 多栏环境支持
-\RequirePackage{caption} % 图表标题定制
-\RequirePackage{fancyhdr} % 页眉页脚定制
-\RequirePackage{tcolorbox} % 创建彩色文本框
 
+% --- 字体与中文支持 ---
+\usefonttheme[onlymath]{serif}                % 数学公式使用衬线字体
+\RequirePackage{fontspec}                     % 字体选择
+\RequirePackage{xeCJK}                        % XeLaTeX 中文支持
+\RequirePackage{ctex}                         % 中文支持
 
-\catcode`\。=\active         %或者=13
-\newcommand{。}{．}				
-%将正文中的“。”号转换为“.”。中文标点国家规范建议科技文献中的句号用圆点替代
+% --- 数学与符号 ---
+\RequirePackage{amsmath,amsfonts,amssymb,bm}  % 数学公式相关
 
-%%% Inherit definitions from existing themes (DO NOT MODIFY THESE)
-%%%
-\useoutertheme{split} % 分割式头部和尾部布局
-\usecolortheme{whale} % 使用鲸鱼色彩主题，为外部元素提供背景色
-\useinnertheme{rounded} % 内部元素使用圆角布局
-\usecolortheme{orchid} % 使用兰花色彩主题，为内部元素提供前景色
+% --- 图形与超链接 ---
+\RequirePackage{graphicx}                     % 图片插入
+\RequirePackage{hyperref,url}                 % 超链接与网址
 
-%%%
-%%% Tweak definitions of inner theme to match personal preferences (MODIFY THESE)
-%%%
+% --- 其他常用宏包 ---
+\RequirePackage{metalogo}                     % \XeLaTeX 等 logo
+\RequirePackage{lipsum}                       % 生成填充文本
+\RequirePackage{listings}                     % 代码高亮
+\RequirePackage[dvipsnames]{xcolor}           % 颜色支持，dvipsnames 提供更多颜色
+\RequirePackage{subcaption}                   % 并排图片
+\RequirePackage{multicol}                     % 多栏环境
+\RequirePackage{caption}                      % 图表标题定制
+\RequirePackage{fancyhdr}                     % 页眉页脚
+\RequirePackage{tcolorbox}                    % 彩色文本框
 
-\setbeamertemplate{itemize items}[circle] % 列表项目符号为圆圈
-\setbeamertemplate{enumerate items}[circle] % 枚举项目符号为圆圈
-\setbeamertemplate{sections/subsections in toc}[default] % 目录中的章节/小节使用默认样式
+% --- 中文标点句号替换 ---
+\catcode`\。=\active
+\newcommand{。}{．} % 将“。”替换为“.”，科技文献规范
 
-% General blocks: 使用圆角样式的方块
-\setbeamertemplate{blocks}[rounded] % 
+% ============================================================
+% 2. Beamer 主题继承与基本主题设置
+% ============================================================
 
-% Title page: 标题页样式
-\setbeamertemplate{title page}[default][colsep=-4bp,rounded=true] % 
-% Part page: 部分页样式
-\setbeamertemplate{part page}[default][colsep=-4bp,rounded=true] % 
-% Navigation symbols:
-% \setbeamertemplate{navigation symbols}{} % 可以取消注释来隐藏导航符号
+% --- 继承现有主题 ---
+\useoutertheme{split}         % 分割式头部和尾部布局
+\usecolortheme{whale}         % 外部元素背景色
+\useinnertheme{rounded}       % 内部元素圆角
+\usecolortheme{orchid}        % 内部元素前景色
 
-%%%
-%%% Tweak definitions of outer theme to match Radboud (website) style
-%%%
+% ============================================================
+% 3. Beamer 内部样式自定义
+% ============================================================
 
-% Background
-\pgfdeclareimage[width=\paperwidth,height=\paperheight]{bg}{figures/background.png} % 定义背景图像
-\setbeamertemplate{background}{\pgfuseimage{bg}} % 应用背景图像
+% --- 列表项目符号样式 ---
+\beamertemplateballitem
+% 启用 ballitem 风格（可注释掉不用）
 
-% Colors 自定义结构色彩主题{structure}
-\usecolortheme[RGB={0,63,136}]{structure}
+\setbeamertemplate{itemize items}[circle]
+% itemize 项目符号样式，可选：[circle]（圆圈）、[square]（方块）、[triangle]（三角）、[ball]（小球）、[default]（默认）
 
+\setbeamertemplate{enumerate items}[circle]
+% enumerate 编号样式，可选：[circle]（圆圈）、[square]（方块）、[default]（数字）、[ball]（小球）
+
+\setbeamertemplate{sections/subsections in toc}[default]
+% 目录章节样式，可选：[default]、[ball]、[square]、[circle]、[sections numbered]
+
+\setbeamertemplate{blocks}[rounded]
+% block 环境样式，可选：[rounded]（圆角）、[default]、[shadowed]（阴影）
+
+\setbeamertemplate{section in toc}[square]
+% 目录 section 符号样式，可选：[square]（方块）、[ball]（小球）、[circle]（圆圈）、[default]
+
+\setbeamertemplate{title page}[default][colsep=-4bp,rounded=true]
+% 标题页样式，可选：[default]、[plain]，可加参数如[colsep=...]、[rounded=true/false]
+
+\setbeamertemplate{part page}[default][colsep=-4bp,rounded=true]
+% part 页样式，可选：[default]、[plain]，可加参数如[colsep=...]、[rounded=true/false]
+
+% \setbeamertemplate{navigation symbols}{}
+% 取消注释可隐藏导航符号，注释则显示
+
+% ============================================================
+% 4. 外部主题细节调整（Radboud 风格）
+% ============================================================
+
+% --- 背景设置 ---
+\pgfdeclareimage[width=\paperwidth,height=\paperheight]{bg}{figures/background.png} % 背景图
+\setbeamertemplate{background}{\pgfuseimage{bg}}                                   % 应用背景
+
+% --- 结构色设置 ---
+\usecolortheme[RGB={0,63,136}]{structure} % 主色调
+
+% --- 顶部颜色与渐变说明 ---
+% 1. 结构色通过 \usecolortheme[RGB={0,63,136}]{structure} 定义
+% 2. frametitle 区域颜色由下两行决定
 \setbeamercolor{frametitle}{parent=subsection in head/foot}
 \setbeamercolor{frametitle right}{parent=section in head/foot}
+% 3. 渐变色定义
 \pgfdeclarehorizontalshading[frametitle.bg,frametitle right.bg]{beamer@frametitleshade}{\paperheight}{%
-  color(0pt)=(frametitle.bg); color(\paperwidth)=(frametitle right.bg)}
+  color(0pt)=(frametitle.bg); 
+  color(\paperwidth)=(frametitle right.bg)}
+% 4. 如需自定义顶部颜色，可用如下命令：
+%    \setbeamercolor{frametitle}{bg=red!80!black,fg=white}
+%    \setbeamercolor{frametitle right}{bg=blue!80!black,fg=white}
 
+% --- 顶部渐变阴影 ---
 \AtBeginDocument{
   \pgfdeclareverticalshading{beamer@topshade}{\paperwidth}{%
     color(0pt)=(bg);
     color(4pt)=(black!50!bg)}
 }
 
-% Footline: AUTHOR | TITLE | DATE FRAMENUMBER
+% ============================================================
+% 5. 页脚与页眉（footline/headline）自定义
+% ============================================================
+
+% --- 页脚 footline: 作者 | 日期 | 标题 | 页码 ---
 \defbeamertemplate*{footline}{zju theme}{%
   \leavevmode%
   \hbox{%
@@ -104,12 +143,26 @@
   \vskip0pt%
 }
 
+% --- headline 区域颜色切换命令 ---
+\newcommand{\zjusectioncolor}[1]{%
+  \def\zju@headlinecolor{section in head/foot}% 默认黑色
+  \edef\zju@tmpa{#1}%
+  \ifx\zju@tmpa\@empty\else
+    \ifx\zju@tmpa\zju@blue
+      \def\zju@headlinecolor{subsection in head/foot}%
+    \fi
+  \fi
+}
+\def\zju@blue{blue}
+% 默认 headline 颜色
+
+% --- 页眉 headline ---
 \defbeamertemplate*{headline}{zju theme}{%
   \leavevmode%
   \@tempdimb=6.4375ex%
   %\multiply\@tempdimb by\beamer@sectionmax%
-  \pgfdeclareimage[height=.95\@tempdimb]{logo}{figures/logo.png}%
-  \pgfdeclareimage[height=\@tempdimb]{title_logo}{figures/char.png}%
+  \pgfdeclareimage[height=.85\@tempdimb]{logo}{figures/logo.pdf}%
+  \pgfdeclareimage[height=0.8\@tempdimb]{title_logo}{figures/char.pdf}%
   \logo{\pgfuseimage{logo}}%
   \ifdim\@tempdimb>0pt%
     \advance\@tempdimb by 1.125ex%
@@ -119,15 +172,16 @@
     %% \begin{beamercolorbox}[wd=.4\paperwidth,ht=\@tempdimb,center]{subsection in head/foot}%
     %%   \vbox to\@tempdimb{\vfil\textbf{\footnotesize\insertshortinstitute~~}\vfil}%
     %% \end{beamercolorbox}%
-    \begin{beamercolorbox}[wd=.135\paperwidth,ht=\@tempdimb,center]{section in head/foot}%
+    \begin{beamercolorbox}[wd=.135\paperwidth,ht=\@tempdimb,center]{\zju@headlinecolor} % 可切换颜色
       \vbox to\@tempdimb{\vfil\pgfuseimage{title_logo}\vfil}%
     \end{beamercolorbox}%
-    \begin{beamercolorbox}[wd=.065\paperwidth,ht=\@tempdimb,center]{section in head/foot}%
+    \begin{beamercolorbox}[wd=.065\paperwidth,ht=\@tempdimb,center]{\zju@headlinecolor} % 可切换颜色
       \vbox to\@tempdimb{\vfil\insertlogo\vfil\vfil}%
     \end{beamercolorbox}%
   \fi%
 }
 
+% --- frametitle 样式 ---
 \defbeamertemplate*{frametitle}{zju theme}{%
   \nointerlineskip%
   %\vskip-2pt%
@@ -170,37 +224,42 @@
   %    \vskip-2pt
 }
 
-% 代码显示
+% ============================================================
+% 6. 代码高亮与语言支持
+% ============================================================
+
 \lstset{
-    language=Tex, % 设置语言
+    language=Tex,                                 % 代码语言
     backgroundcolor=\color{white}, 
-    basicstyle=\ttfamily, % 设置字体族
-    breaklines=true, % 自动换行
-    keywordstyle=\bfseries\color{NavyBlue}, % 设置关键字为粗体，颜色为 NavyBlue
-    morekeywords={}, % 设置更多的关键字，用逗号分隔
-    emph={self}, % 指定强调词，如果有多个，用逗号隔开
-    emphstyle=\bfseries\color{Rhodamine}, % 强调词样式设置
-    commentstyle=\itshape\color{black!50!white}, % 设置注释样式，斜体，浅灰色
-    stringstyle=\bfseries\color{PineGreen!90!black}, % 设置字符串样式
+    basicstyle=\ttfamily,                         % 字体族
+    breaklines=true,                              % 自动换行
+    keywordstyle=\bfseries\color{NavyBlue},       % 关键字样式
+    morekeywords={},                              % 额外关键字
+    emph={self},                                  % 强调词
+    emphstyle=\bfseries\color{Rhodamine},         % 强调词样式
+    commentstyle=\itshape\color{black!50!white},  % 注释样式
+    stringstyle=\bfseries\color{PineGreen!90!black}, % 字符串样式
     columns=flexible,
-    numbers=left, % 显示行号在左边
-    numbersep=2em, % 设置行号的具体位置
-    numberstyle=\footnotesize, % 缩小行号
-    frame=shadowbox, % 边框
-    rulesepcolor=\color{red!20!green!20!blue!20}, 
-    % framesep=1em % 设置代码与边框的距离
+    numbers=left,                                 % 行号左侧
+    numbersep=2em,                                % 行号间距
+    numberstyle=\footnotesize,                    % 行号字体
+    frame=shadowbox,                              % 边框
+    rulesepcolor=\color{red!20!green!20!blue!20}, % 分隔线颜色
+    % framesep=1em                                % 代码与边框距离
     showstringspaces=false
 }
 
 \lstloadlanguages{C,C++,Java,Matlab,python,Mathematica}
 
-      
-% 参考文献
+% ============================================================
+% 7. 参考文献样式
+% ============================================================
+
 \setbeamertemplate{bibliography item}[text]
 \newcommand{\reference}{
-    \nocite{*}   %打开此选项会列出bib里面的所有参考文献
-    \bibliographystyle{unsrt} %规定了参考文献的格式
-    \begin{center}%居中
-    	\bibliography{references} %调出LaTeX生成参考文献列表
+    \nocite{*}   % 列出 bib 文件中所有参考文献
+    \bibliographystyle{unsrt} % 参考文献格式
+    \begin{center}            % 居中显示
+    	\bibliography{references} % 生成参考文献列表
     \end{center}
 }

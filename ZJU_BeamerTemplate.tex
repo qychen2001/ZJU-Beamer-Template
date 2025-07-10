@@ -3,15 +3,10 @@
 % Date: 2025-07-10
 
 \PassOptionsToPackage{quiet}{fontspec} 
-\documentclass[10pt,aspectratio=169]{beamer}		
-%设置为 Beamer 文档类型，设置字体为 10pt，长宽比为16:9，数学字体为 serif 风格
-
+\documentclass[10pt,aspectratio=169]{beamer}
 \usepackage{zju_beamer}
-
 \graphicspath{{./figures/}} % 指定图片所在文件夹  
-
-\beamertemplateballitem		%设置 Beamer 主题
-
+\zjusectioncolor{blue} % 顶部栏右上角的颜色，blue/black
 
 % 首页信息设置
 \title[浙江大学 Beamer 模板]{浙江大学 Beamer 模板}
@@ -20,20 +15,16 @@
 \institute[IOPP]{计算机学院 \\ 浙江大学}
 \date{\today}
 
-
-
-
 \begin{document}
 
 \begin{frame}
 	\titlepage
 \end{frame}				%生成标题页
 
-\section{提纲}
 \begin{frame}
-	\frametitle{提纲}
+	\frametitle{目录}
 	\tableofcontents
-\end{frame}				%生成提纲页
+\end{frame}				%生成目录页
 
 \section{介绍}
 \begin{frame}
