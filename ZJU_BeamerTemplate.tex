@@ -1,62 +1,30 @@
 %# -*- coding:utf-8 -*-
-\documentclass[10pt,aspectratio=169,mathserif]{beamer}		
-%设置为 Beamer 文档类型，设置字体为 10pt，长宽比为16:9，数学字体为 serif 风格
+% Author: Guang Touge(chenqiyuan1012@gmail.com), PhilFan(hw.phil.fan@gmail.com)
+% Date: 2025-07-10
 
-%%%%-----导入宏包-----%%%%
-\usepackage{zju}			%导入 zju 模板宏包
-\usepackage{ctex}			%导入 ctex 宏包，添加中文支持
-\usepackage{amsmath,amsfonts,amssymb,bm}   %导入数学公式所需宏包
-\usepackage{color}			 %字体颜色支持
-\usepackage{graphicx,hyperref,url}
-\usepackage{metalogo}	% 非必须
-%% 上文引用的包可按实际情况自行增删
-%%%%%%%%%%%%%%%%%%
-\usepackage{fontspec}
-\usepackage{xeCJK}
-% \setCJKmainfont{Source Han Sans SC}
+\PassOptionsToPackage{quiet}{fontspec} 
+\documentclass[10pt,aspectratio=169]{beamer}
+\usepackage{zju_beamer}
+\graphicspath{{./figures/}} % 指定图片所在文件夹  
+\zjusectioncolor{blue} % 顶部栏右上角的颜色，blue/black
 
-
-
-\beamertemplateballitem		%设置 Beamer 主题
-
-%%%%------------------------%%%%%
-\catcode`\。=\active         %或者=13
-\newcommand{。}{．}				
-%将正文中的“。”号转换为“.”。中文标点国家规范建议科技文献中的句号用圆点替代
-%%%%%%%%%%%%%%%%%%%%%
-
-%%%%----首页信息设置----%%%%
+% 首页信息设置
 \title[浙江大学 Beamer 模板]{浙江大学 Beamer 模板}
-\subtitle{——这里是副标题}			
-%%%%----标题设置
+\subtitle{——这里是副标题}
+\author[Guang Touge, PhilFan]{光头哥, PhilFan}
+\institute[IOPP]{计算机学院 \\ 浙江大学}
+\date{\today}
 
-
-\author[Guang Touge]{
-  光头哥 \\\medskip
-  {\small \url{chenqiyuan1012@gmail.com}} \\
-  {\small \url{https://www.zju.edu.cn/}}}
-%%%%----个人信息设置
-  
-\institute[IOPP]{
-  计算机学院 \\ 
-  浙江大学}
-%%%%----机构信息
-
-\date[Oct. 12 2024]{
-  2024年10月12日}
-%%%%----日期信息
-  
 \begin{document}
 
 \begin{frame}
 	\titlepage
 \end{frame}				%生成标题页
 
-\section{提纲}
 \begin{frame}
-	\frametitle{提纲}
+	\frametitle{目录}
 	\tableofcontents
-\end{frame}				%生成提纲页
+\end{frame}				%生成目录页
 
 \section{介绍}
 \begin{frame}
@@ -79,8 +47,7 @@
 \end{frame}
 
 \section{内置环境}
-\begin{frame}
-	\frametitle{内置环境}
+\begin{frame}{内置环境}{副标题}
 	\begin{block}{Slides with \LaTeX}
 		Beamer offers a lot of functions to create nice slides using \LaTeX.
 	\end{block}
@@ -106,6 +73,49 @@
 	\end{enumerate}
 \end{frame}
 
+\begin{frame}{并排图片显示}
+可以通过minipage的方式实现并排效果，比如图片排版：
+	\begin{figure}[ht]
+		\centering
+		% 第一张图片
+		\begin{minipage}[b]{0.45\linewidth} % 使用 45% 的行宽
+			\centering
+			\includegraphics[width=0.5\linewidth]{example.png}
+			\caption{第一张图片标题}
+			\label{fig:image1}
+		\end{minipage}
+		\hfill % 在两个 minipage 之间添加一些水平空间
+		% 第二张图片
+		\begin{minipage}[b]{0.45\linewidth} % 使用 45% 的行宽
+			\centering
+			\includegraphics[width=0.5\linewidth]{example.png}
+			\caption{第二张图片标题}
+			\label{fig:image2}
+		\end{minipage}
+	\end{figure}
+\end{frame}
+	
+
+\begin{frame}[fragile]
+\frametitle{示例代码}
+\begin{lstlisting}[language=C++]
+#include <iostream>
+
+class HelloWorld {
+public:
+    void sayHello() {
+        std::cout << "Hello, World!" << std::endl;
+    }
+};
+
+int main() {
+    HelloWorld hw;
+    hw.sayHello();
+    return 0;
+}
+\end{lstlisting}
+\end{frame}
+
 \section{结论}
 \begin{frame}
 	\frametitle{结论}
@@ -117,14 +127,9 @@
 \end{frame}
 
 \section{参考文献}
-\begin{frame}{参考文献}
-	\begin{thebibliography}{99}
-		\bibitem{zhao1} Yi~Zhao, {\sl An introduction to X}, Sep.~15, 2015
-		\bibitem{qian2} Er~Qian, San~Sun,
-		Phys.\ Lett.\ A {\bf xx}, 2xx (20xx)
-		\bibitem{li4} Si~Li, Phys.\ Rev.\ C {\bf xx}, 5xx (20xx)
-
-	\end{thebibliography}
+\begin{frame}[allowframebreaks]%实现自动分页
+    \frametitle{参考文献}
+    \reference
 \end{frame}
 
 \end{document}
