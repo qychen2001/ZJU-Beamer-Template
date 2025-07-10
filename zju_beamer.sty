@@ -16,6 +16,7 @@
 %%%%-----导入宏包-----%%%%
 \ProvidesPackage{zju_beamer}  
 % 导入必要的宏包
+\usefonttheme[onlymath]{serif}
 \RequirePackage{fontspec} % 提供字体选择功能
 \RequirePackage{xeCJK} % 提供更完善的中文支持
 \RequirePackage{ctex} % 提供中文支持
@@ -77,12 +78,6 @@
 \setbeamercolor{frametitle right}{parent=section in head/foot}
 \pgfdeclarehorizontalshading[frametitle.bg,frametitle right.bg]{beamer@frametitleshade}{\paperheight}{%
   color(0pt)=(frametitle.bg); color(\paperwidth)=(frametitle right.bg)}
-
-
-
-\pgfdeclarehorizontalshading[frametitle.bg,frametitle right.bg]{beamer@frametitleshade}{\paperheight}{%
-  color(0pt)=(frametitle.bg);
-  color(\paperwidth)=(frametitle right.bg)}
 
 \AtBeginDocument{
   \pgfdeclareverticalshading{beamer@topshade}{\paperwidth}{%

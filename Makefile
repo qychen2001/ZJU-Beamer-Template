@@ -2,7 +2,7 @@ TARGET = ZJU_BeamerTemplate
 SRC = $(TARGET).tex
 PDF = $(TARGET).pdf
 
-.PHONY: all clean
+.PHONY: all init renew clean help
 
 all: $(PDF)
 
