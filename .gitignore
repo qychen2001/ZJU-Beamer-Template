@@ -178,3 +178,13 @@ TSWLatexianTemp*
 
 # KBibTeX
 *~[0-9]*
+
+
+# VSCode
+.vscode/
+**/.vscode/
+
+# MacOS
+.DS_Store
+**/.DS_Store
+.DS_Store?
