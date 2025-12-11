@@ -181,8 +181,8 @@ TSWLatexianTemp*
 
 
 # VSCode
-.vscode/
-**/.vscode/
+# .vscode/
+# **/.vscode/
 
 # MacOS
 .DS_Store
